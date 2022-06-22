@@ -4,7 +4,7 @@ import { NavLink } from 'react-router-dom';
 
 export const HeaderWrapper = styled.header`
   width: 77vw;
-  margin: 0 auto;
+  margin: 50px auto;
 `
 
 export const Title = styled.h3`
@@ -17,7 +17,6 @@ export const Title = styled.h3`
 export const TitleContainer = styled.span`
   width: 77vw;
   margin: 0 auto;
-  
 `
 
 export const UserContainer = styled.span`
@@ -32,10 +31,6 @@ export const NavLinks = styled.div`
   justify-content: space-around;
   display: flex;
   margin-bottom: 15px;
-
-  ${({ theme }) => theme.mediaWidth.upToLarge`
-    display: none;
-  `};
 `
 
 export const StyledLink = styled(NavLink)`
@@ -61,14 +56,6 @@ export const StyledLink = styled(NavLink)`
   &:last-child {
     background-color: #e44b05;
   }
-
-  ${({ theme }) => theme.mediaWidth.upToLarge`
-    height: 32px;
-    width: 156.5px;
-    margin-right: 8px;
-    padding: 6px 13px;
-    text-align: center;
-  `};
 `
 
 export const Select = styled.select`
@@ -101,11 +88,6 @@ export const SelectsWrapper = styled.div`
   display: flex;
   justify-content: space-between;
   margin: 0 0 15px 0;
-
-  ${({ theme }) => theme.mediaWidth.upToLarge`
-    flex: 1;
-    margin: 20px 0 0 0;
-  `};
 `
 
 export const UserNameContainer = styled.div`
@@ -135,10 +117,6 @@ export const Input = styled.input`
     border: ${(props: { error: boolean }) =>
       props.error ? '1px solid #F20D19' : '1px solid rgba(196, 201, 210, 0.35)'};
   }
-
-  ${({ theme }) => theme.mediaWidth.upToLarge`
-    width: 235px;
-  `};
 `
 
 export const ErrorContainer = styled.div`
@@ -177,9 +155,6 @@ export const StyledMenuButton = styled.button`
     right: 0;
   }
   
-  /* ${({ theme }) => theme.mediaWidth.upToExtraSmall`
-    margin-right: -35px;
-  `}; */
 `
 
 export const StyledTextButton = styled.button`
@@ -205,9 +180,6 @@ export const StyledTextButton = styled.button`
 
 export const SwiperNavLinksMobile = styled.div`
   display: none;
-  ${({ theme }) => theme.mediaWidth.upToLarge`
-    display: block;
-  `};
 `
 
 export const SwiperContainer = styled.div`
@@ -217,8 +189,4 @@ export const SwiperContainer = styled.div`
   justify-content: space-between;
   align-items: center;
   padding-top: 60px;
-  
-  ${({ theme }) => theme.mediaWidth.upToExtraSmall`
-    margin-left: -35px;
-  `};
 `

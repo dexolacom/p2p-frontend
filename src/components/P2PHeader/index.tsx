@@ -28,7 +28,7 @@ import {
 // import { User } from '../../../generated/graphql'
 // import { UPDATE_USERNAME } from '../../../queries/UpdateUsername'
 // import { useTranslation } from 'react-i18next'
-import { Route, useLocation} from 'react-router-dom'
+import { Route, Routes, useLocation } from 'react-router-dom';
 // import { GET_MY_ADVERTS } from '../../../queries/GetAdverts'
 // import { Swiper, SwiperSlide } from 'swiper/react'
 // import 'swiper/swiper.min.css'
@@ -77,15 +77,15 @@ const Header: React.FC<Props> = ({ setSellFilter, setExchangeFilter }) => {
   //   fetchPolicy: 'network-only'
   // })
   // const { data: assets, loading } = useQuery(GET_ASSETS, { variables: { chainId: chainId } })
-  // const [loading, setLoading] = useState()
-  // const [userName, setUserName] = useState<string>('')
-  // const [idUser, setIdUse] = useState<number | undefined>()
-  // const [isInputVisible, setIsInputVisible] = useState<boolean>(false)
-  // const [isUserNameError, setIsUsernameError] = useState<boolean>(false)
-  // const [selling, setSelling] = useState<string>('')
-  // const [exchange, setExchange] = useState<string>('')
-  // const [newAssets, setNewAssets] = useState([])
-  //
+  const [loading, setLoading] = useState()
+  const [userName, setUserName] = useState<string>('')
+  const [idUser, setIdUse] = useState<number | undefined>()
+  const [isInputVisible, setIsInputVisible] = useState<boolean>(false)
+  const [isUserNameError, setIsUsernameError] = useState<boolean>(false)
+  const [selling, setSelling] = useState<string>('')
+  const [exchange, setExchange] = useState<string>('')
+  const [newAssets, setNewAssets] = useState([])
+
   // const tokens = !loading && assets?.assets
   // const sortedByAlphabet = !loading && tokens?.slice()?.sort((a, b) => a?.name?.localeCompare(b.name))
   // const id: any = localStorage.getItem('id')
@@ -204,9 +204,9 @@ const Header: React.FC<Props> = ({ setSellFilter, setExchangeFilter }) => {
   //   }
   // }
   //
-  // const onPathChange = e => {
-  //   history.push(`${e.target.value}`)
-  // }
+  const onPathChange = e => {
+    history.push(`${e.target.value}`)
+  }
   //
   // useEffect(() => {
   //   if (sortedByAlphabet) {
@@ -230,62 +230,57 @@ const Header: React.FC<Props> = ({ setSellFilter, setExchangeFilter }) => {
 
   return (
     <>
-      <TitleContainer>
-        <Title>f</Title>
-      </TitleContainer>
-
       <HeaderWrapper>
         {/*<Modal isOpen={modalOpen} onDismiss={modalHandler} maxWidth={356}>*/}
         {/*  <ConnectWalletWarning text={t('modalWarning.subHeader.variants.p2p')}></ConnectWalletWarning>*/}
         {/*</Modal>*/}
         {/*<SwiperContainer>*/}
-        {/*  <NavLinks>*/}
-        {/*    <StyledLink className={'at-click at-p2p-all-listing'} exact to="/dapps/p2p">*/}
-        {/*      /!* AdBoard *!/*/}
-        {/*      {t('p2p.header.allListing')}*/}
-        {/*    </StyledLink>*/}
-        {/*    {menuItems.map(({ name, endpoint }) => {*/}
-        {/*      if (name === 'My trades') {*/}
-        {/*        location.pathname === '/dapps/p2p/my-trades/closed'*/}
-        {/*          ? (endpoint = 'my-trades/closed')*/}
-        {/*          : (endpoint = 'my-trades/open')*/}
-        {/*      }*/}
-        {/*      if (name === 'My chats') {*/}
-        {/*        location.pathname === '/dapps/p2p/my-chats/about-my-ads'*/}
-        {/*          ? (endpoint = 'my-chats/about-my-ads')*/}
-        {/*          : location.pathname === '/dapps/p2p/my-chats/about-other-ads'*/}
-        {/*          ? (endpoint = 'my-chats/about-other-ads')*/}
-        {/*          : (endpoint = 'my-chats/about-all-ads')*/}
-        {/*      }*/}
+          <NavLinks>
+            <StyledLink className={'at-click at-p2p-all-listing'} exact to="/">
+               AdBoard
+            </StyledLink>
+            {menuItems.map(({ name, endpoint }) => {
+              if (name === 'My trades') {
+                location.pathname === 'my-trades/closed'
+                  ? (endpoint = 'my-trades/closed')
+                  : (endpoint = 'my-trades/open')
+              }
+              if (name === 'My chats') {
+                location.pathname === 'my-chats/about-my-ads'
+                  ? (endpoint = 'my-chats/about-my-ads')
+                  : location.pathname === 'my-chats/about-other-ads'
+                  ? (endpoint = 'my-chats/about-other-ads')
+                  : (endpoint = 'my-chats/about-all-ads')
+              }
 
-        {/*      if (name === 'My listings') {*/}
-        {/*        location.pathname === '/dapps/p2p/my-adverts/archived'*/}
-        {/*          ? (endpoint = 'my-adverts/archived')*/}
-        {/*          : (endpoint = 'my-adverts/')*/}
-        {/*      }*/}
+              if (name === 'My listings') {
+                location.pathname === 'my-adverts/archived'
+                  ? (endpoint = 'my-adverts/archived')
+                  : (endpoint = 'my-adverts/')
+              }
 
-        {/*      return (*/}
-        {/*        <StyledLink*/}
-        {/*          className={`at-click at-p2p-${endpoint.replace('/', '-').toLowerCase()}`}*/}
-        {/*          key={name}*/}
-        {/*          onClick={e => {*/}
-        {/*            checkWallet(e, account, `/dapps/p2p/${endpoint}`, true)*/}
-        {/*            //@ts-ignore*/}
-        {/*            window.dataLayer.push({*/}
-        {/*              event: `process_start`,*/}
-        {/*              process: `dApps P2P create listing`,*/}
-        {/*              step_name: `Create listing`*/}
-        {/*            })*/}
-        {/*          }}*/}
-        {/*          exact*/}
-        {/*          to={`/dapps/p2p/${endpoint}`}*/}
-        {/*          style={localStorage.getItem('token') == 'null' ? blockedButton : {}}*/}
-        {/*        >*/}
-        {/*          {name}*/}
-        {/*        </StyledLink>*/}
-        {/*      )*/}
-        {/*    })}*/}
-        {/*  </NavLinks>*/}
+              return (
+                <StyledLink
+                  className={`at-click at-p2p-${endpoint.replace('/', '-').toLowerCase()}`}
+                  key={name}
+                  onClick={e => {
+                    checkWallet(e, account, `/${endpoint}`, true)
+                    //@ts-ignore
+                    window.dataLayer.push({
+                      event: `process_start`,
+                      process: `dApps P2P create listing`,
+                      step_name: `Create listing`
+                    })
+                  }}
+                  exact
+                  to={`/${endpoint}`}
+                  style={localStorage.getItem('token') == 'null' ? blockedButton : {}}
+                >
+                  {name}
+                </StyledLink>
+              )
+            })}
+          </NavLinks>
 
         {/*  <SwiperNavLinksMobile>*/}
         {/*    <Swiper*/}
@@ -302,7 +297,7 @@ const Header: React.FC<Props> = ({ setSellFilter, setExchangeFilter }) => {
         {/*        </StyledLink>*/}
         {/*        {menuItems.map(({ name, endpoint }) => {*/}
         {/*          if (name === 'My trades') {*/}
-        {/*            location.pathname === '/dapps/p2p/my-trades/closed'*/}
+        {/*            location.pathname === 'my-trades/closed'*/}
         {/*              ? (endpoint = 'my-trades/closed')*/}
         {/*              : (endpoint = 'my-trades/open')*/}
         {/*          }*/}
@@ -337,180 +332,161 @@ const Header: React.FC<Props> = ({ setSellFilter, setExchangeFilter }) => {
         {/*    </Swiper>*/}
         {/*  </SwiperNavLinksMobile>*/}
 
-        {/*  <SelectsWrapper>*/}
-        {/*    {isInputVisible ? (*/}
-        {/*      <></>*/}
-        {/*    ) : (*/}
-        {/*      <>*/}
-        {/*        <Route*/}
-        {/*          className={'at-click at-p2p-all-listing'}*/}
-        {/*          exact*/}
-        {/*          strict*/}
-        {/*          path="/dapps/p2p"*/}
-        {/*          render={() => (*/}
-        {/*            <>*/}
-        {/*              <form id="selects-form" style={{ display: 'flex' }}>*/}
-        {/*                <Select className={'at-click at-p2p-slc-swap-tkn'} onChange={e => setSellingOption(e)}>*/}
-        {/*                  <option value="" hidden>*/}
-        {/*                    /!* Selling asset *!/*/}
-        {/*                    {t('p2p.header.assetToSwap')}*/}
-        {/*                  </option>*/}
-        {/*                  {newAssets.map(el => {*/}
-        {/*                    return (*/}
-        {/*                      <>*/}
-        {/*                        <option*/}
-        {/*                          className={`at-click at-p2p-slc-${el?.name.toLowerCase()}-swap`}*/}
-        {/*                          key={el?.id}*/}
-        {/*                          value={el?.name}*/}
-        {/*                        >*/}
-        {/*                          {el?.name}*/}
-        {/*                        </option>*/}
-        {/*                      </>*/}
-        {/*                    )*/}
-        {/*                  })}*/}
-        {/*                  <option className={'at-click at-p2p-slc-all-swap'} value="all">*/}
-        {/*                    {t('p2p.header.all')}*/}
-        {/*                  </option>*/}
-        {/*                  <option className={'at-click at-p2p-slc-nft-swap'} value="NFT">*/}
-        {/*                    {t('p2p.header.nftTokens')}*/}
-        {/*                  </option>*/}
-        {/*                </Select>*/}
-        {/*                <Select className={'at-click at-p2p-slc-receive-tkn'} onChange={e => setExchangeOption(e)}>*/}
-        {/*                  <option value="" hidden>*/}
-        {/*                    {t('p2p.header.assetToReceive')}*/}
-        {/*                  </option>*/}
-        {/*                  {newAssets.map(el => {*/}
-        {/*                    return (*/}
-        {/*                      <>*/}
-        {/*                        <option*/}
-        {/*                          className={`at-click at-p2p-slc-${el?.name.toLowerCase()}-receive`}*/}
-        {/*                          key={el?.id}*/}
-        {/*                          value={el?.name}*/}
-        {/*                        >*/}
-        {/*                          {el?.name}*/}
-        {/*                        </option>*/}
-        {/*                      </>*/}
-        {/*                    )*/}
-        {/*                  })}*/}
-        {/*                  <option className={'at-click at-p2p-slc-all-receive'} value="all">*/}
-        {/*                    {t('p2p.header.all')}*/}
-        {/*                  </option>*/}
-        {/*                  <option className={'at-click at-p2p-slc-all-swap'} value="NFT">*/}
-        {/*                    {t('p2p.header.nftTokens')}*/}
-        {/*                  </option>*/}
-        {/*                </Select>*/}
-        {/*                /!*<button type="reset" from="selects-form" onClick={() =>  { setSellFilter(''); setExchangeFilter('');}}>*!/*/}
-        {/*                /!*  reset*!/*/}
-        {/*                /!*</button>*!/*/}
-        {/*              </form>*/}
-        {/*            </>*/}
-        {/*          )}*/}
-        {/*        />*/}
+          <SelectsWrapper>
+            {isInputVisible ? (
+              <></>
+            ) : (
+              <Routes>
+                <Route
+                  className={'at-click at-p2p-all-listing'}
+                  exact
+                  strict
+                  path="/"
+                  element={
+                    <form id="selects-form" style={{ display: 'flex' }}>
+                      <Select className={'at-click at-p2p-slc-swap-tkn'} onChange={e => setSellingOption(e)}>
+                        <option value="" hidden>
+                           Asset to swap
+                        </option>
+                        {newAssets.map(el => {
+                          return (
+                            <>
+                              <option
+                                className={`at-click at-p2p-slc-${el?.name.toLowerCase()}-swap`}
+                                key={el?.id}
+                                value={el?.name}
+                              >
+                                {el?.name}
+                              </option>
+                            </>
+                          )
+                        })}
+                        <option className={'at-click at-p2p-slc-all-swap'} value="all">
+                          All
+                        </option>
+                        <option className={'at-click at-p2p-slc-nft-swap'} value="NFT">
+                          Nft tokens
+                        </option>
+                      </Select>
+                      <Select className={'at-click at-p2p-slc-receive-tkn'} onChange={e => setExchangeOption(e)}>
+                        <option value="" hidden>
+                          Asset to receive
+                        </option>
+                        {newAssets.map(el => {
+                          return (
+                            <>
+                              <option
+                                className={`at-click at-p2p-slc-${el?.name.toLowerCase()}-receive`}
+                                key={el?.id}
+                                value={el?.name}
+                              >
+                                {el?.name}
+                              </option>
+                            </>
+                          )
+                        })}
+                        <option className={'at-click at-p2p-slc-all-receive'} value="all">
+                          All
+                        </option>
+                        <option className={'at-click at-p2p-slc-all-swap'} value="NFT">
+                          Nft tokens
+                        </option>
+                      </Select>
+                      {/*<button type="reset" from="selects-form" onClick={() =>  { setSellFilter(''); setExchangeFilter('');}}>*/}
+                      {/*  reset*/}
+                      {/*</button>*/}
+                    </form>
+                  }
+                />
 
-        {/*        <Route*/}
-        {/*          className={'at-click at-p2p-my-trades'}*/}
-        {/*          exact*/}
-        {/*          strict*/}
-        {/*          path={['/dapps/p2p/my-trades/open', '/dapps/p2p/my-trades/closed']}*/}
-        {/*          render={() => {*/}
-        {/*            return (*/}
-        {/*              <>*/}
-        {/*                <Select className={'at-click at-p2p-all-slc-trades'} onChange={onPathChange}>*/}
-        {/*                  <option className={'at-click at-p2p-my-trades-open'} value="open">*/}
-        {/*                    {t('p2p.header.open')}*/}
-        {/*                  </option>*/}
-        {/*                  <option className={'at-click at-p2p-my-trades-closed'} value="closed">*/}
-        {/*                    {t('p2p.header.closed')}*/}
-        {/*                  </option>*/}
-        {/*                </Select>*/}
-        {/*              </>*/}
-        {/*            )*/}
-        {/*          }}*/}
-        {/*        />*/}
-
-        {/*        <Route*/}
-        {/*          exact*/}
-        {/*          strict*/}
-        {/*          path={[*/}
-        {/*            '/dapps/p2p/my-chats/about-all-ads',*/}
-        {/*            '/dapps/p2p/my-chats/about-my-ads',*/}
-        {/*            '/dapps/p2p/my-chats/about-other-ads'*/}
-        {/*          ]}*/}
-        {/*          render={() => {*/}
-        {/*            return (*/}
-        {/*              <>*/}
-        {/*                <Select className={'at-click at-p2p-slc-ads'} onChange={onPathChange} style={{ width: '175px' }}>*/}
-        {/*                  <option className={'at-click at-p2p-all-ads'} value="about-all-ads">*/}
-        {/*                    {t('p2p.header.allAds')}*/}
-        {/*                  </option>*/}
-        {/*                  <option className={'at-click at-p2p-my-ads'} value="about-my-ads">*/}
-        {/*                    {t('p2p.header.myAds')}*/}
-        {/*                  </option>*/}
-        {/*                  <option className={'at-click at-p2p-other-ads'} value="about-other-ads">*/}
-        {/*                    {t('p2p.header.otherAds')}*/}
-        {/*                  </option>*/}
-        {/*                </Select>*/}
-        {/*              </>*/}
-        {/*            )*/}
-        {/*          }}*/}
-        {/*        />*/}
-
-        {/*        <Route*/}
-        {/*          exact*/}
-        {/*          strict*/}
-        {/*          path={['/dapps/p2p/my-adverts/', '/dapps/p2p/my-adverts/archived', '/dapps/p2p/my-adverts']}*/}
-        {/*          render={() => (*/}
-        {/*            <>*/}
-        {/*              <Select className={'at-click at-p2p-slc-type'} onChange={onPathChange} style={{ width: '175px' }}>*/}
-        {/*                <option className={'at-click at-p2p-actual'} value="/dapps/p2p/my-adverts/">*/}
-        {/*                  {t('p2p.header.actual')}*/}
-        {/*                </option>*/}
-        {/*                <option className={'at-click at-p2p-all-archived'} value="/dapps/p2p/my-adverts/archived">*/}
-        {/*                  {t('p2p.header.archived')}*/}
-        {/*                </option>*/}
-        {/*              </Select>*/}
-        {/*            </>*/}
-        {/*          )}*/}
-        {/*        />*/}
-        {/*      </>*/}
-        {/*    )}*/}
+                {['my-trades/open', 'my-trades/closed'].map((path, index) => {
+                  return (
+                    <Route path={path} key={index} element={
+                      <Select className={'at-click at-p2p-all-slc-trades'} onChange={onPathChange}>
+                        <option className={'at-click at-p2p-my-trades-open'} value="open">
+                          Open
+                        </option>
+                        <option className={'at-click at-p2p-my-trades-closed'} value="closed">
+                          Closed
+                        </option>
+                      </Select>}
+                    />
+                  );
+                })}
 
 
-        {/*    /!* End cap for right-aligning a StyledMenuButton *!/*/}
-        {/*    <UserContainer>*/}
-        {/*      <UserNameContainer>*/}
-        {/*        <form style={{ display: 'flex' }}>*/}
-        {/*          {isInputVisible && (*/}
-        {/*            <>*/}
-        {/*              <Input*/}
-        {/*                error={isUserNameError}*/}
-        {/*                type="text"*/}
-        {/*                value={userName}*/}
-        {/*                placeholder={t('p2p.header.username')}*/}
-        {/*                onChange={inputHandler}*/}
-        {/*                maxLength={20}*/}
-        {/*              />*/}
-        {/*              <StyledTextButton*/}
-        {/*                className={'at-click at-p2p-btn-cnf'}*/}
-        {/*                error={isUserNameError}*/}
-        {/*                onClick={formSubmit}*/}
-        {/*              >*/}
-        {/*                {t('p2p.header.confirm')}*/}
-        {/*              </StyledTextButton>*/}
-        {/*            </>*/}
-        {/*          )}*/}
-        {/*          {isUserNameError && isInputVisible && (*/}
-        {/*            <ErrorContainer>{t('p2p.header.thisUsernameIsAlreadyTaken')}</ErrorContainer>*/}
-        {/*          )}*/}
-        {/*        </form>*/}
-        {/*        {account && !isInputVisible && (*/}
-        {/*          <StyledMenuButton className={'at-click at-p2p-btn-show-input'} onClick={setInputVisible}>*/}
-        {/*            <img src={settings} style={{ height: 24, width: 24, marginTop: 9 }} />*/}
-        {/*          </StyledMenuButton>*/}
-        {/*        )}*/}
-        {/*      </UserNameContainer>*/}
-        {/*    </UserContainer>*/}
-        {/*  </SelectsWrapper>*/}
+                {['my-chats/about-all-ads', 'my-chats/about-my-ads', 'my-chats/about-other-ads']
+                  .map((path, index) => {
+                    return (
+                      <Route path={path} key={index} element={
+                        <Select className={'at-click at-p2p-slc-ads'} onChange={onPathChange} style={{ width: '175px' }}>
+                          <option className={'at-click at-p2p-all-ads'} value='about-all-ads'>
+                            All adverts
+                          </option>
+                          <option className={'at-click at-p2p-my-ads'} value='about-my-ads'>
+                            My adverts
+                          </option>
+                          <option className={'at-click at-p2p-other-ads'} value='about-other-ads'>
+                            Other adverts
+                          </option>
+                        </Select>}
+                      />);
+                })}
+
+
+                {['my-adverts/', 'my-adverts/archived', 'my-adverts']
+                  .map((path, index) => {
+                    return (
+                      <Route path={path} key={index} element={
+                        <Select className={'at-click at-p2p-slc-type'} onChange={onPathChange} style={{ width: '175px' }}>
+                          <option className={'at-click at-p2p-actual'} value="/dapps/p2p/my-adverts/">
+                            Actual
+                          </option>
+                          <option className={'at-click at-p2p-all-archived'} value="/dapps/p2p/my-adverts/archived">
+                            Archived
+                          </option>
+                        </Select>}
+                      />);
+                  })}
+              </Routes>
+            )}
+
+
+            {/* End cap for right-aligning a StyledMenuButton */}
+            <UserContainer>
+              <UserNameContainer>
+                <form style={{ display: 'flex' }}>
+                  {isInputVisible && (
+                    <>
+                      <Input
+                        error={isUserNameError}
+                        type="text"
+                        value={userName}
+                        placeholder={t('p2p.header.username')}
+                        onChange={inputHandler}
+                        maxLength={20}
+                      />
+                      <StyledTextButton
+                        className={'at-click at-p2p-btn-cnf'}
+                        error={isUserNameError}
+                        onClick={formSubmit}
+                      >
+                        Confirm
+                      </StyledTextButton>
+                    </>
+                  )}
+                  {isUserNameError && isInputVisible && (
+                    <ErrorContainer>'Username already taken'</ErrorContainer>
+                  )}
+                </form>
+                {account && !isInputVisible && (
+                  <StyledMenuButton className={'at-click at-p2p-btn-show-input'} onClick={setInputVisible}>
+                    <img src={settings} style={{ height: 24, width: 24, marginTop: 9 }} />
+                  </StyledMenuButton>
+                )}
+              </UserNameContainer>
+            </UserContainer>
+          </SelectsWrapper>
         {/*</SwiperContainer>*/}
       </HeaderWrapper>
     </>

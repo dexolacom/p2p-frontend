@@ -8,7 +8,17 @@ import CreateTrade from './components/Forms/CreateTrade';
 import Chat from './components/Chat/Chat';
 import Board from './components/Board/Board';
 import { Route, Routes } from 'react-router-dom'
+import GeneralTable from './components/GeneralTable/GeneralTable';
+import styled from 'styled-components';
 // import { RedirectToMyAdverts } from '../../components/P2P/TableRow/redirects'
+
+const Wrapper = styled.div`
+  display: flex;
+  margin-top: 25px;
+  flex-direction: row;
+  justify-content: space-between;
+  
+`;
 
 const App:React.FC = () => {
   const [sellFilter, setSellFilter] = useState<string>('')
@@ -28,7 +38,9 @@ const App:React.FC = () => {
       {/*  <Route path="p2p/my-trades/create-trade" element={CreateTrade} />*/}
       {/*  <Route path="p2p/my-chats/chat/:id" element={Chat} />*/}
       {/*</Routes>*/}
-      <Board sellFilter={sellFilter} exchangeFilter={exchangeFilter}/>
+      <Wrapper>
+        <GeneralTable sellFilter={sellFilter} exchangeFilter={exchangeFilter}/>
+      </Wrapper>
     </div>
   )
 }

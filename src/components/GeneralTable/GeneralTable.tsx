@@ -1,6 +1,6 @@
 import React from 'react'
 import { Route, Routes } from 'react-router-dom';
-import BoardTable from '../Board/Table'
+import BoardTable from './Table'
 
 interface Props {
   sellFilter?: string;
@@ -12,8 +12,10 @@ const GeneralTable: React.FC<Props> = ({ sellFilter, exchangeFilter }) => {
     <div style={{ margin: '0 auto' }}>
       <Routes>
         <Route
-          path={'/dapps/p2p'}
-          element={<BoardTable sellFilter={sellFilter} exchangeFilter={exchangeFilter}/>}
+          path={'/'}
+          element={
+            <BoardTable sellFilter={sellFilter} exchangeFilter={exchangeFilter}/>
+          }
         />
         {/*<Route path={['/dapps/p2p/my-adverts/', '/dapps/p2p/my-adverts/archived']} element={MyAdvertsTable}/>*/}
         {/*<Route path={['/dapps/p2p/my-trades/open', '/dapps/p2p/my-trades/closed']} element={MyTradesTable}/>*/}
