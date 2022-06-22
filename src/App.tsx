@@ -15,7 +15,7 @@ import styled from 'styled-components';
 const Wrapper = styled.div`
   display: flex;
   margin-top: 25px;
-  flex-direction: row;
+  flex-direction: row
   justify-content: space-between;
   
 `;
