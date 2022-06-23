@@ -6,11 +6,9 @@ import { Wrapper } from './styles';
 const TableHeader:React.FC<PropsTableHeader> = ({variant}) => {
   return (
     <Wrapper>
-      {variant.map((string, index) => {
-        return (
-          <span key={index}>{string}</span>
-        )
-      })}
+      {variant.map((string, index) => (
+        <span key={index}>{string}</span>
+      ))}
     </Wrapper>
   );
 };

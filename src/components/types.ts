@@ -10,3 +10,7 @@ export interface PropsTable {
 export interface PropsTableHeader {
   variant: string[]
 }
+
+export interface PropsTableRow {
+  listingsData: {id: number, trader: string, assetToSwap: string, assetToReceive: string}[]
+}
