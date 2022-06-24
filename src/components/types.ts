@@ -12,5 +12,19 @@ export interface PropsTableHeader {
 }
 
 export interface PropsTableRow {
-  listingsData: {id: number, trader: string, assetToSwap: string, assetToReceive: string}[]
+  listingsData: {
+    id: number
+    trader: string
+    assetToSwap: string
+    assetToReceive: string
+    tradeId?: number | string,
+    yourCounterparty?: string,
+    yourSend?: string,
+    yourStatus?: string,
+    yourReceive?: string,
+    counterpartyStatus?: string,
+    deadline?: string,
+    tradeCreator?: string
+  }[]
+  variant: string
 }

@@ -10,9 +10,9 @@ const Header:React.FC<PropsHeader> = ({setTableType}) => {
       <ButtonsContainer>
         <Button onClick={() => setTableType('allListings')}>All listings</Button>
         <Button onClick={() => setTableType('myListings')}>My listings</Button>
-        <Button onClick={() => setTableType('myTrades')}>My trades</Button>
-        <Button onClick={() => setTableType('myChats')}>My chats</Button>
-        <Button>Create listing</Button>
+        {/*<Button onClick={() => setTableType('myTrades')}>My trades</Button>*/}
+        {/*<Button onClick={() => setTableType('myChats')}>My chats</Button>*/}
+        {/*<Button>Create listing</Button>*/}
       </ButtonsContainer>
       <FilterContainer>Filter</FilterContainer>
     </Wrapper>

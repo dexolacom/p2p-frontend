@@ -43,6 +43,36 @@ export const myListingsData = [
   },
 ]
 
-
-// export const myTradesData = {}
+export const myTradesData = [
+  {
+    tradeId: 1,
+    yourCounterparty: 'niko',
+    yourSend: '22 BNB',
+    yourStatus: 'pending',
+    yourReceive: '3 USDT',
+    counterpartyStatus: 'sent',
+    deadline: '2021-11-22 13:44',
+    tradeCreator: 'hello'
+  },
+  {
+    tradeId: 2,
+    yourCounterparty: 'bad',
+    yourSend: '22 BTC',
+    yourStatus: 'pending',
+    yourReceive: '3888 USDT',
+    counterpartyStatus: 'sent',
+    deadline: '2021-11-22 12:44',
+    tradeCreator: 'hay'
+  },
+  {
+    tradeId: 3,
+    yourCounterparty: 'boob',
+    yourSend: '22 USDT',
+    yourStatus: 'pending',
+    yourReceive: '3 USDC',
+    counterpartyStatus: 'sent',
+    deadline: '2021-11-24 13:44',
+    tradeCreator: 'hello'
+  },
+]
 // export const myChatsData = {}

@@ -8,7 +8,7 @@ export const Wrapper = styled.div`
   margin-top: 1em;
   font-size: 14px;
   color: #fff;
-  padding: 0.5em 0;
+  padding: 1em 0;
   border-radius: 5px;
   
   span {
