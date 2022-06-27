@@ -3,6 +3,7 @@ import { ListingModalProps } from '../types';
 import { Content, Form, Input, Wrapper } from './styles';
 import { ReactComponent as Cross } from '../../assets/icons/cross.svg'
 import { AdditionalText, Button, Row, Title } from '../theme';
+import ModalSelect from '../ModalSelect/ModalSelect';
 
 
 const ListingModal:React.FC<ListingModalProps> = ({setIsListingModalOpen}) => {
@@ -14,11 +15,11 @@ const ListingModal:React.FC<ListingModalProps> = ({setIsListingModalOpen}) => {
         <Form>
           <Row>
             <AdditionalText >What do you swap?</AdditionalText>
-            <Input/>
+            <ModalSelect/>
           </Row>
           <Row>
             <AdditionalText >What do you want to receive?</AdditionalText>
-            <Input/>
+            <ModalSelect/>
           </Row>
           <Row flexDirection={'row'} gap={'30px'}>
             <Row marginBottom={0}>
