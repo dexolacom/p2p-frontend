@@ -24,15 +24,14 @@ const Table: React.FC<PropsTable> = ({ tableType }) => {
         </>
       }
 
-      {/*{tableType === 'myTrades' &&*/}
-      {/*<>*/}
-      {/*  <TableHeader variant={tableHeaderVariant['myTrades']} />*/}
-      {/*  /!*@ts-ignore*!/*/}
-      {/*  <TableRow listingsData={myTradesData} variant={'myTrades'}/>*/}
-      {/*</>*/}
-      {/*}*/}
+      {tableType === 'myTrades' &&
+      <>
+        <TableHeader variant={tableHeaderVariant['myTrades']} />
+        {/*@ts-ignore*/}
+        <TableRow listingsData={myTradesData} variant={'myTrades'}/>
+      </>
+      }
 
-      {/*{tableType === 'myTrades' && <TableHeader variant={tableHeaderVariant['myTrades']} />}*/}
       {/*{tableType === 'myChats' && <TableHeader variant={tableHeaderVariant['myChats']} />}*/}
 
     </Wrapper>
