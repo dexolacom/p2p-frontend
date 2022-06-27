@@ -13,23 +13,35 @@ const ListingModal:React.FC<ListingModalProps> = ({setIsListingModalOpen}) => {
         <Title margin={'1em 0'}>Create listing</Title>
         <Form>
           <Row>
-            <AdditionalText>What do you swap?</AdditionalText>
+            <AdditionalText >What do you swap?</AdditionalText>
             <Input/>
           </Row>
           <Row>
-            <AdditionalText>What do you want to receive?</AdditionalText>
+            <AdditionalText >What do you want to receive?</AdditionalText>
+            <Input/>
           </Row>
-          <Row>
-            <AdditionalText></AdditionalText>
+          <Row flexDirection={'row'} gap={'30px'}>
+            <Row marginBottom={0}>
+              <AdditionalText>Min amount</AdditionalText>
+              <Input/>
+            </Row>
+            <Row marginBottom={0}>
+              <AdditionalText>Max amount</AdditionalText>
+              <Input/>
+            </Row>
           </Row>
-          <Row>
-            <AdditionalText>Define your offer</AdditionalText>
+          <Row marginBottom={'32px'}>
+            <AdditionalText >Define your offer</AdditionalText>
+            <Input/>
           </Row>
           <Row justify={'center'} gap={'20px'} flexDirection={'row'}>
-            <Button background={'#9994ba'} hoverColor={'#7c728f'}>Cancel</Button>
-            <Button background={'#793aff'} hoverColor={'#6831d6'}>Create</Button>
+            <Button padding={'6px 50px'} background={'#9994ba'} hoverColor={'#7c728f'} onClick={() => setIsListingModalOpen(false)}>
+              Cancel
+            </Button>
+            <Button padding={'6px 50px'} background={'#793aff'} hoverColor={'#6831d6'}>
+              Create
+            </Button>
           </Row>
-
         </Form>
       </Content>
     </Wrapper>

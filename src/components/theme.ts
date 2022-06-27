@@ -17,7 +17,8 @@ export const Button = styled.button<{padding?: string, background?: string, colo
   }
 `
 
-export const AdditionalText = styled.span<{fontSize?: string}>`
+export const AdditionalText = styled.span<{fontSize?: string, marginBottom?: string}>`
+  margin-bottom: ${({marginBottom}) => marginBottom ?? '8px'};
   font-size: ${({fontSize}) => fontSize ?? '14px'};
   color: #9994ba;
 `
@@ -28,10 +29,10 @@ export const Title = styled.h4<{fontSize?: string, margin?: string}>`
   color: #fff;
 `
 
-export const Row = styled.div<{marginBottom?: string, align?: string, justify?: string, gap?: string, flexDirection?: string}>`
+export const Row = styled.div<{marginBottom?: string | number, align?: string, justify?: string, gap?: string, flexDirection?: string}>`
   display: flex;
   flex-direction: ${({flexDirection}) => flexDirection ?? 'column'};
-  align-items: ${({align}) => align ?? 'center'};
+  align-items: ${({align}) => align ?? 'start'};
   justify-content: ${({justify}) => justify ?? 'start'};
   margin-bottom: ${({marginBottom}) => marginBottom ?? '16px'};
   gap: ${({gap}) => gap ?? '0'};

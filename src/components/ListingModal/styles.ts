@@ -4,7 +4,7 @@ export const Wrapper = styled.div`
   background-color: #3b3854;
   border-radius: 5px;
   position: relative;
-  width: clamp(300px, 600px, 50%);
+  width: clamp(300px, 450px, 50%);
 `
 
 export const Content = styled.div`
@@ -31,4 +31,7 @@ export const Input = styled.input`
   outline: none;
   background-color: #9994ba;
   color: #fff;
+  border-radius: 5px;
+  padding: 5px 12px;
+  width: 100%;
 `
