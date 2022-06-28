@@ -1,7 +1,11 @@
 import styled from 'styled-components';
 
+const buttonBackground = '#3b3854'
+const buttonHoverColor = '#793aff'
+
+
 export const Button = styled.button<{padding?: string, background?: string, color?: string, hoverColor?: string}>`
-  background-color: ${({ background }) => background ?? '#3b3854'};
+  background-color: ${({ background }) => background ?? buttonBackground};
   color: ${({ color }) => color ?? '#fff'};;
   border-radius: 5px;
   border: none;
@@ -9,11 +13,11 @@ export const Button = styled.button<{padding?: string, background?: string, colo
   cursor: pointer;
   
   &:focus {
-    background-color: ${({ hoverColor }) => hoverColor ?? '#793aff'};
+    background-color: ${({ hoverColor }) => hoverColor ?? buttonHoverColor};
   }
   
   &:hover {
-    background-color: ${({ hoverColor }) => hoverColor ?? '#793aff'};;
+    background-color: ${({ hoverColor }) => hoverColor ?? buttonHoverColor};
   }
 `
 
@@ -36,4 +40,19 @@ export const Row = styled.div<{marginBottom?: string | number, align?: string, j
   justify-content: ${({justify}) => justify ?? 'start'};
   margin-bottom: ${({marginBottom}) => marginBottom ?? '16px'};
   gap: ${({gap}) => gap ?? '0'};
+`
+
+export const Input = styled.input<{background?: string}>`
+  border: none;
+  outline: none;
+  background-color: ${({background}) => background ?? '#9994ba'};
+  color: #fff;
+  border-radius: 5px;
+  padding: 5px 12px;
+  width: 100%;
+
+  ::-webkit-calendar-picker-indicator {
+    filter: invert(1);
+    cursor: pointer;
+  }
 `

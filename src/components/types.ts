@@ -6,6 +6,7 @@ export interface PropsHeader {
 
 export interface PropsTable {
   tableType: string
+  setIsModalOpen?: (b: boolean) => void
 }
 
 export interface PropsTableHeader {
@@ -28,9 +29,10 @@ export interface PropsTableRow {
     tradeCreator?: string
   }[]
   variant: string
+  setIsModalOpen?: (b: boolean) => void
 }
 
 export interface ListingModalProps {
-  setIsListingModalOpen: (b: boolean) => void
+  setIsModalOpen: (b: boolean) => void
   children?: JSX.Element[] | JSX.Element
 }

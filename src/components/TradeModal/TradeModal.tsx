@@ -6,12 +6,12 @@ import { AdditionalText, Button, Input, Row, Title } from '../theme';
 import ModalSelect from '../ModalSelect/ModalSelect';
 
 
-const ListingModal:React.FC<ListingModalProps> = ({setIsModalOpen}) => {
+const TradeModal:React.FC<ListingModalProps> = ({setIsModalOpen}) => {
   return (
     <Wrapper onClick={(e) => e.stopPropagation()}>
       <Content>
         <Cross onClick={() => setIsModalOpen(false)}/>
-        <Title margin={'1em 0'}>Create listing</Title>
+        <Title margin={'1em 0'}>Create Trade</Title>
         <Form>
           <Row>
             <AdditionalText >What do you swap?</AdditionalText>
@@ -31,16 +31,23 @@ const ListingModal:React.FC<ListingModalProps> = ({setIsModalOpen}) => {
               <Input/>
             </Row>
           </Row>
+          <Row>
+            <AdditionalText>Exchanging rates: </AdditionalText>
+          </Row>
+          <Row>
+            <AdditionalText>DeadLine</AdditionalText>
+            <Input type='date'/>
+          </Row>
           <Row marginBottom={'32px'}>
-            <AdditionalText >Define your offer</AdditionalText>
-            <Input/>
+            <AdditionalText>Notify user</AdditionalText>
+            <Input disabled background={'#757280'}/>
           </Row>
           <Row justify={'center'} gap={'20px'} flexDirection={'row'}>
             <Button padding={'6px 50px'} background={'#9994ba'} hoverColor={'#7c728f'} onClick={() => setIsModalOpen(false)}>
               Cancel
             </Button>
             <Button padding={'6px 50px'} background={'#793aff'} hoverColor={'#6831d6'}>
-              Create
+              Create Trade
             </Button>
           </Row>
         </Form>
@@ -49,4 +56,4 @@ const ListingModal:React.FC<ListingModalProps> = ({setIsModalOpen}) => {
   );
 };
 
-export default ListingModal;
+export default TradeModal;

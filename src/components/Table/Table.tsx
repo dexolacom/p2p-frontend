@@ -6,14 +6,14 @@ import { allListingsData, myListingsData, myTradesData, tableHeaderVariant } fro
 import TableRow from '../TableRow/TableRow';
 
 
-const Table: React.FC<PropsTable> = ({ tableType }) => {
+const Table: React.FC<PropsTable> = ({ tableType, setIsModalOpen }) => {
 
   return (
     <Wrapper>
       {tableType === 'allListings' &&
         <>
           <TableHeader variant={tableHeaderVariant['allListings']} />
-          <TableRow listingsData={allListingsData} variant={'allListings'}/>
+          <TableRow listingsData={allListingsData} variant={'allListings'} setIsModalOpen={setIsModalOpen}/>
         </>
       }
 

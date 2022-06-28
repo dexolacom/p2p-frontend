@@ -1,9 +1,10 @@
 import React, { useEffect } from 'react';
 import { Wrapper } from './styles';
 import { PropsTableRow } from '../types';
+import { Button } from '../theme';
 
 
-const TableRow: React.FC<PropsTableRow> = ({ listingsData, variant }) => {
+const TableRow: React.FC<PropsTableRow> = ({ listingsData, variant, setIsModalOpen }) => {
   return (
     <>
       {listingsData.map((listing, index) => {
@@ -15,6 +16,15 @@ const TableRow: React.FC<PropsTableRow> = ({ listingsData, variant }) => {
                 <span>{listing?.trader}</span>
                 <span>{listing?.assetToSwap}</span>
                 <span>{listing?.assetToReceive}</span>
+                <span>
+                  <Button
+                    onClick={() => setIsModalOpen && setIsModalOpen(true)}
+                    background={'#793aff'}
+                    hoverColor={'#6831d6'}
+                  >
+                    Acquire
+                  </Button>
+                </span>
               </>
             }
             {variant === 'myTrades' &&

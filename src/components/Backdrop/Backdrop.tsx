@@ -3,9 +3,9 @@ import { Wrapper } from './styles';
 import { ListingModalProps } from '../types';
 
 
-const Backdrop:React.FC<ListingModalProps> = ({children, setIsListingModalOpen}) => {
+const Backdrop:React.FC<ListingModalProps> = ({children, setIsModalOpen}) => {
   return (
-    <Wrapper onClick={() => setIsListingModalOpen(false)}>
+    <Wrapper onClick={() => setIsModalOpen(false)}>
       {children}
     </Wrapper>
   );
