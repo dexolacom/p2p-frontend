@@ -1,6 +1,6 @@
 import React from 'react';
 import { Select } from './styles';
-import { tokens } from '../constants';
+import { tokens } from '../../constants';
 
 
 const ModalSelect = () => {

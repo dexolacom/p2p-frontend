@@ -1,8 +1,8 @@
 import React from 'react';
-import { ListingModalProps } from '../types';
+import { ListingModalProps } from '../../types';
 import { Content, Form, Wrapper } from './styles';
-import { ReactComponent as Cross } from '../../assets/icons/cross.svg'
-import { AdditionalText, Button, Input, Row, Title } from '../theme';
+import { ReactComponent as Cross } from '../../../assets/icons/cross.svg'
+import { AdditionalText, Button, Input, Row, Title } from '../../theme';
 import ModalSelect from '../ModalSelect/ModalSelect';
 
 

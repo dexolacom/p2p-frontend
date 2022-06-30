@@ -2,8 +2,9 @@ import React, { useEffect, useState } from 'react';
 import Header from './components/Header/Header';
 import Table from './components/Table/Table';
 import Backdrop from './components/Backdrop/Backdrop';
-import ListingModal from './components/ListingModal/ListingModal';
-import TradeModal from './components/TradeModal/TradeModal';
+import ListingModal from './components/Modals/ListingModal/ListingModal';
+import TradeModal from './components/Modals/TradeModal/TradeModal';
+import Chat from './components/Chat/Chat';
 
 
 function App() {
@@ -18,6 +19,7 @@ function App() {
   return (
     <div className="app">
       <div className="app-content">
+        <Chat/>
         <Header setTableType={setTableType} setIsListingModalOpen={setIsListingModalOpen}/>
         <Table tableType={tableType} setIsModalOpen={setIsTradeModalOpen}/>
         {isListingModalOpen &&

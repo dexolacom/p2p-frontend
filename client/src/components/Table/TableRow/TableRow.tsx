@@ -1,7 +1,7 @@
 import React, { useEffect } from 'react';
 import { Wrapper } from './styles';
-import { PropsTableRow } from '../types';
-import { Button } from '../theme';
+import { PropsTableRow } from '../../types';
+import { Button } from '../../theme';
 
 
 const TableRow: React.FC<PropsTableRow> = ({ listingsData, variant, setIsModalOpen }) => {

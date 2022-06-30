@@ -1,5 +1,5 @@
 import React from 'react';
-import { PropsTableHeader } from '../types';
+import { PropsTableHeader } from '../../types';
 import { Wrapper } from './styles';
 
 

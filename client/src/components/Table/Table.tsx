@@ -1,9 +1,9 @@
 import React from 'react';
 import { PropsTable } from '../types';
 import { Wrapper } from './styles';
-import TableHeader from '../TableHeader/TableHeader';
+import TableHeader from './TableHeader/TableHeader';
 import { allListingsData, myListingsData, myTradesData, tableHeaderVariant } from '../constants';
-import TableRow from '../TableRow/TableRow';
+import TableRow from './TableRow/TableRow';
 
 
 const Table: React.FC<PropsTable> = ({ tableType, setIsModalOpen }) => {
