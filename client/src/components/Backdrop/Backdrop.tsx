@@ -1,9 +1,9 @@
 import React from 'react';
 import { Wrapper } from './styles';
-import { ListingModalProps } from '../types';
+import { ModalProps } from '../types';
 
 
-const Backdrop:React.FC<ListingModalProps> = ({children, setIsModalOpen}) => {
+const Backdrop:React.FC<ModalProps> = ({children, setIsModalOpen}) => {
   return (
     <Wrapper onClick={() => setIsModalOpen(false)}>
       {children}

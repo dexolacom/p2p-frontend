@@ -4,7 +4,7 @@ import { ButtonsContainer, FilterContainer, Wrapper } from './styles';
 import { PropsHeader } from '../types';
 
 
-const Header:React.FC<PropsHeader> = ({setTableType, setIsListingModalOpen}) => {
+const Header:React.FC<PropsHeader> = ({setTableType, setIsListingModalOpen, setIsChatModalOpen}) => {
   return (
     <Wrapper>
       <ButtonsContainer>
@@ -13,6 +13,7 @@ const Header:React.FC<PropsHeader> = ({setTableType, setIsListingModalOpen}) => 
         <Button onClick={() => setTableType('myTrades')}>My trades</Button>
         <Button onClick={() => setTableType('myChats')}>My chats</Button>
         <Button onClick={() => setIsListingModalOpen(true)}>Create listing</Button>
+        <Button onClick={() => setIsChatModalOpen(true)}>Open chat</Button>
       </ButtonsContainer>
       <FilterContainer>Filter</FilterContainer>
     </Wrapper>

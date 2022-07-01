@@ -1,12 +1,12 @@
 import React from 'react';
-import { ListingModalProps } from '../../types';
+import { ModalProps } from '../../types';
 import { Content, Form, Wrapper } from './styles';
 import { ReactComponent as Cross } from '../../../assets/icons/cross.svg'
 import { AdditionalText, Button, Input, Row, Title } from '../../theme';
 import ModalSelect from '../ModalSelect/ModalSelect';
 
 
-const TradeModal:React.FC<ListingModalProps> = ({setIsModalOpen}) => {
+const TradeModal:React.FC<ModalProps> = ({setIsModalOpen}) => {
   return (
     <Wrapper onClick={(e) => e.stopPropagation()}>
       <Content>
