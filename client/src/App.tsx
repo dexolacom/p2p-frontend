@@ -15,7 +15,9 @@ function App() {
 
   useEffect(() => {
     document.body.style.overflow = (isListingModalOpen || isTradeModalOpen || isChatModalOpen) ? "hidden" : "unset"
+    console.log(document.body.style.overflow);
   }, [isListingModalOpen, isTradeModalOpen, isChatModalOpen]);
+
 
   return (
     <div className="app">

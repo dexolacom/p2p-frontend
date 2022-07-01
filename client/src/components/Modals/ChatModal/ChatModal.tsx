@@ -13,20 +13,20 @@ const socket = io('http://localhost:3001');
 const ChatModal: React.FC<ModalProps> = ({ setIsModalOpen }) => {
   const [username, setUsername] = useState('');
   const [roomNumber, setRoomNumber] = useState('');
-  const [isChatJoined, setIsChatJoined] = useState(true)
+  const [isChatJoined, setIsChatJoined] = useState(false);
 
   const joinChat = () => {
     if (username && roomNumber) {
       socket.emit('joinRoom', roomNumber);
-      setIsChatJoined(true)
+      setIsChatJoined(true);
     }
   };
 
   return (
     <>
-      {/*{isChatJoined*/}
-        <Messenger socket={socket} username={username} roomNumber={roomNumber}/>
-        <Wrapper onClick={(e) => e.stopPropagation()}>
+      {isChatJoined
+        ? <Messenger socket={socket} username={username} roomNumber={roomNumber} />
+        : <Wrapper onClick={(e) => e.stopPropagation()}>
           <Content>
             <Cross onClick={() => setIsModalOpen(false)} />
             <Title margin={'16px 0'}>Fill the fields for join a chat</Title>
@@ -45,9 +45,9 @@ const ChatModal: React.FC<ModalProps> = ({ setIsModalOpen }) => {
             </Row>
           </Content>
         </Wrapper>
-      {/*}*/}
+      }
     </>
   );
-};
+}
 
 export default ChatModal;
