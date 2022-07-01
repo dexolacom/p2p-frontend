@@ -22,6 +22,10 @@ io.on('connection', (socket) => {
     console.log(`User ${socket.id} joined to room ${roomNumber}`)
   })
 
+  socket.on('sendMessage', (data) => {
+    socket.to(data.room).emit('receiveMessage', data)
+  })
+
   socket.on('disconnect', () => {
     console.log('User disconnected', socket.id)
   })

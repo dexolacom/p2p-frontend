@@ -37,3 +37,9 @@ export interface ModalProps {
   setIsModalOpen: (b: boolean) => void
   children?: JSX.Element[] | JSX.Element
 }
+
+export interface MessengerProps {
+  socket: any
+  username: string | number
+  roomNumber: string | number
+}
